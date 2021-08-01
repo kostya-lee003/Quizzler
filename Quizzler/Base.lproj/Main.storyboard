@@ -16,6 +16,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ras-ac-3zY">
+                                <rect key="frame" x="127" y="59" width="160" height="5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="5" id="HlM-vb-wo2"/>
+                                </constraints>
+                                <color key="progressTintColor" systemColor="systemGreenColor"/>
+                            </progressView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gTs-eW-aCS">
+                                <rect key="frame" x="171.5" y="435" width="71" height="36"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Y0-P5-4m4">
                                 <rect key="frame" x="50" y="697" width="314" height="65"/>
                                 <constraints>
@@ -42,24 +56,9 @@
                                     <action selector="answerBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2or-Oy-Lv9"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QuestionLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3XR-G6-QZM">
-                                <rect key="frame" x="152" y="357.5" width="110" height="21"/>
-                                <color key="backgroundColor" red="0.94632169560000001" green="1" blue="0.93475989209999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ras-ac-3zY">
-                                <rect key="frame" x="127" y="59" width="160" height="5"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="5" id="HlM-vb-wo2"/>
-                                </constraints>
-                                <color key="progressTintColor" systemColor="systemGreenColor"/>
-                            </progressView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gTs-eW-aCS">
-                                <rect key="frame" x="171.5" y="435" width="71" height="36"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="QuestionLabel" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3XR-G6-QZM">
+                                <rect key="frame" x="31" y="352" width="353" height="32"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -81,8 +80,10 @@
                             <constraint firstItem="3XR-G6-QZM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mGu-QK-0ym"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dR1-2Z-N43" secondAttribute="trailing" constant="50" id="nAt-nU-XcJ"/>
                             <constraint firstItem="dR1-2Z-N43" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="oRL-go-Zp7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3XR-G6-QZM" secondAttribute="trailing" constant="30" id="pKZ-bR-qT9"/>
                             <constraint firstItem="dR1-2Z-N43" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="s2l-Je-lfQ"/>
                             <constraint firstItem="Ras-ac-3zY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="127" id="uMT-PG-8A3"/>
+                            <constraint firstItem="3XR-G6-QZM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="31" id="zGa-Ev-R6k"/>
                         </constraints>
                     </view>
                     <connections>

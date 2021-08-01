@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var Question: UILabel!
     @IBOutlet weak var AppearingLabel: UILabel!
     
+    private var timer: Timer? = nil
     
     var i = 0
     
@@ -29,25 +30,14 @@ class ViewController: UIViewController {
         
     }
     
-    private func setAppearingLabelColor(_ answer: Bool) {
-        if answer == false {
-            AppearingLabel.backgroundColor = UIColor(red: 255/255, green: 0/255, blue: 0/255, alpha: 1.0)
-        }
-        else if answer == true {
-            AppearingLabel.backgroundColor = UIColor(red: 25/255, green: 205/255, blue: 25/255, alpha: 1.0)
-        }
-        
-    }
-    
     private func updateUI() {
         setBtnProperties(TrueBtn)
         setBtnProperties(FalseBtn)
-        updateAppearingLabel()
-    }
-    
-    private func updateAppearingLabel() {
-        AppearingLabel.backgroundColor = UIColor(red: 25/255, green: 205/255, blue: 25/255, alpha: 0)
-        AppearingLabel.textColor = UIColor( white: 0, alpha: 0)
+        AppearingLabel.alpha = 0
+        AppearingLabel.layer.cornerRadius = 4.0
+        AppearingLabel.layer.masksToBounds = true
+        Question.textColor = .white
+
     }
     
     private func setBtnProperties(_ button: UIButton) {
@@ -65,41 +55,63 @@ class ViewController: UIViewController {
         
         labelAppear()
         nextQuestion()
-        progress()
+        Progress.progress = Float(i) / Float(quizBrain.quiz.count)
         
     }
     
     func nextQuestion() {
-        if i == quizBrain.quiz.count - 1 {
-            i = 0
-            Question.text = quizBrain.getQuestion(i)
-        } else {
+        if i < quizBrain.quiz.count - 1 {
             i += 1
             Question.text = quizBrain.getQuestion(i)    // Setting the question runtime on device.
+        } else {
+            i += 1
+            Progress.progress = Float(i) / Float(quizBrain.quiz.count)
+            i = 0
+            Question.text = quizBrain.getQuestion(i)
         }
     }
     
     func labelAppear() {
-        
         setCorrectAnswerForLabel()
+        labelDissapear(AppearingLabel)
     }
     
-    func setCorrectAnswerForLabel() {
+    private func labelDissapear(_ label: UILabel?) {
+        //timer = Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
+        label!.alpha = 1.0
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+            label!.alpha = 0
+        }
+    }
+    
+    private func setAppearingLabelColor(_ answer: Bool) {
         
-        if quizBrain.getAnswerForLabel() == true {
-            AppearingLabel.text = "Correct!"
-            setAppearingLabelColor(quizBrain.getAnswerForLabel()!)
+        if answer == false {
+            AppearingLabel.backgroundColor = UIColor(red: 255/255, green: 0/255, blue: 0/255, alpha: 1.0)
         }
-        else if quizBrain.getAnswerForLabel() == false {
-            AppearingLabel.text = "Wrong!"
-            setAppearingLabelColor(quizBrain.getAnswerForLabel()!)
+        else if answer == true {
+            AppearingLabel.backgroundColor = UIColor(red: 25/255, green: 205/255, blue: 25/255, alpha: 1.0)
         }
+        
+    }
+    
+    private func setCorrectAnswerForLabel() {
+        
+            if quizBrain.getAnswerForLabel() == true {
+                AppearingLabel.text = "Correct!"
+                setAppearingLabelColor(quizBrain.getAnswerForLabel()!)
+            }
+            else if quizBrain.getAnswerForLabel() == false {
+                AppearingLabel.text = "Wrong!"
+                setAppearingLabelColor(quizBrain.getAnswerForLabel()!)
+            }
             
         }
-    
-    private func progress() {
-        Progress.progress = Float(i) / Float(quizBrain.quiz.count)
-    }
+
+    private func progress(_ i: Float) {
+            print("\(i) / \(quizBrain.quiz.count)")
+            Progress.progress = i / Float(quizBrain.quiz.count)
+        }
     }
     
 
