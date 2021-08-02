@@ -14,12 +14,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var Progress: UIProgressView!
     @IBOutlet weak var Question: UILabel!
     @IBOutlet weak var AppearingLabel: UILabel!
+    @IBOutlet weak var ScoreLabel: UILabel!
     
-    private var timer: Timer? = nil
     
     var i = 0
     
     var quizBrain = QuizBrain()
+    var score = Score()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +38,7 @@ class ViewController: UIViewController {
         AppearingLabel.layer.cornerRadius = 4.0
         AppearingLabel.layer.masksToBounds = true
         Question.textColor = .white
+        ScoreLabel.textColor = .white
 
     }
     
@@ -55,29 +57,27 @@ class ViewController: UIViewController {
         
         labelAppear()
         nextQuestion()
-        Progress.progress = Float(i) / Float(quizBrain.quiz.count)
-        
+        progress(Float(i))
+        ScoreLabel.text = "\(score.getScore()) / \(score.getNumOfQuestions())"
     }
     
-    func nextQuestion() {
+    private func nextQuestion() {
         if i < quizBrain.quiz.count - 1 {
             i += 1
             Question.text = quizBrain.getQuestion(i)    // Setting the question runtime on device.
         } else {
+            progress(Float(i))
             i += 1
-            Progress.progress = Float(i) / Float(quizBrain.quiz.count)
-            i = 0
-            Question.text = quizBrain.getQuestion(i)
+            
         }
     }
     
-    func labelAppear() {
+    private func labelAppear() {
         setCorrectAnswerForLabel()
         labelDissapear(AppearingLabel)
     }
     
     private func labelDissapear(_ label: UILabel?) {
-        //timer = Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
         label!.alpha = 1.0
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
             label!.alpha = 0
@@ -100,6 +100,7 @@ class ViewController: UIViewController {
             if quizBrain.getAnswerForLabel() == true {
                 AppearingLabel.text = "Correct!"
                 setAppearingLabelColor(quizBrain.getAnswerForLabel()!)
+                score.scoreUp()
             }
             else if quizBrain.getAnswerForLabel() == false {
                 AppearingLabel.text = "Wrong!"

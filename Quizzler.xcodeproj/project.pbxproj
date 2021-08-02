@@ -15,6 +15,7 @@
 		C8744BDC26AAF0D300C8CE90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8744BDA26AAF0D300C8CE90 /* Main.storyboard */; };
 		C8744BDE26AAF0D400C8CE90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8744BDD26AAF0D400C8CE90 /* Assets.xcassets */; };
 		C8744BE126AAF0D400C8CE90 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8744BDF26AAF0D400C8CE90 /* LaunchScreen.storyboard */; };
+		C885509F26B7DA420014AB1E /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = C885509E26B7DA420014AB1E /* Score.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		C8744BDD26AAF0D400C8CE90 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C8744BE026AAF0D400C8CE90 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C8744BE226AAF0D400C8CE90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C885509E26B7DA420014AB1E /* Score.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				C8744BD826AAF0D300C8CE90 /* ViewController.swift */,
 				C8744BDA26AAF0D300C8CE90 /* Main.storyboard */,
 				C8744BDD26AAF0D400C8CE90 /* Assets.xcassets */,
+				C885509E26B7DA420014AB1E /* Score.swift */,
 				C8744BDF26AAF0D400C8CE90 /* LaunchScreen.storyboard */,
 				C81D408926AD8C0200F275F1 /* quizBrain.swift */,
 				C86AADE726AC741300FAB916 /* Question.swift */,
@@ -147,6 +150,7 @@
 				C86AADE826AC741300FAB916 /* Question.swift in Sources */,
 				C8744BD526AAF0D300C8CE90 /* AppDelegate.swift in Sources */,
 				C8744BD726AAF0D300C8CE90 /* SceneDelegate.swift in Sources */,
+				C885509F26B7DA420014AB1E /* Score.swift in Sources */,
 				C81D408A26AD8C0200F275F1 /* quizBrain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
