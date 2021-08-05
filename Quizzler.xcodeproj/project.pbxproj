@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C809360F26BC3E1700A95DF2 /* Popup.swift in Sources */ = {isa = PBXBuildFile; fileRef = C809360E26BC3E1700A95DF2 /* Popup.swift */; };
 		C81D408A26AD8C0200F275F1 /* quizBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81D408926AD8C0200F275F1 /* quizBrain.swift */; };
 		C86AADE826AC741300FAB916 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86AADE726AC741300FAB916 /* Question.swift */; };
 		C8744BD526AAF0D300C8CE90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8744BD426AAF0D300C8CE90 /* AppDelegate.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C809360E26BC3E1700A95DF2 /* Popup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Popup.swift; sourceTree = "<group>"; };
 		C81D408926AD8C0200F275F1 /* quizBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = quizBrain.swift; sourceTree = "<group>"; };
 		C86AADE726AC741300FAB916 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		C8744BD126AAF0D300C8CE90 /* Quizzler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quizzler.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,6 +72,7 @@
 				C885509E26B7DA420014AB1E /* Score.swift */,
 				C8744BDF26AAF0D400C8CE90 /* LaunchScreen.storyboard */,
 				C81D408926AD8C0200F275F1 /* quizBrain.swift */,
+				C809360E26BC3E1700A95DF2 /* Popup.swift */,
 				C86AADE726AC741300FAB916 /* Question.swift */,
 				C8744BE226AAF0D400C8CE90 /* Info.plist */,
 			);
@@ -146,6 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C809360F26BC3E1700A95DF2 /* Popup.swift in Sources */,
 				C8744BD926AAF0D300C8CE90 /* ViewController.swift in Sources */,
 				C86AADE826AC741300FAB916 /* Question.swift in Sources */,
 				C8744BD526AAF0D300C8CE90 /* AppDelegate.swift in Sources */,

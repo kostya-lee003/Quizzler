@@ -26,6 +26,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         updateUI()
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+            let pop = Popup()
+            self.view.addSubview(pop)
+        }
         
         Question.text = quizBrain.getQuestion(i)
         
