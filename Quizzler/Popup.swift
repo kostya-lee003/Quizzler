@@ -12,16 +12,19 @@ class Popup: UIView {
     fileprivate let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = UIColor.white
         label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
-        label.text = "1 credit"
+        label.text = "Your score"
         return label
     }()
     
     fileprivate let subtitleLabel: UILabel = {
+        let score = Score()
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
-        label.text = "In app purchase for 1 book credit"
+        label.text = "\(ViewController.init().i)"
+        label.textColor = UIColor.white
         label.textAlignment = .center
         return label
     }()
@@ -29,8 +32,10 @@ class Popup: UIView {
     fileprivate let container: UIView = {
         let v = UIView()
         v.translatesAutoresizingMaskIntoConstraints = false
-        v.backgroundColor = .systemGray
+        v.backgroundColor = .secondaryLabel
         v.layer.cornerRadius = 24
+        v.layer.borderColor = UIColor.white.cgColor
+        v.layer.borderWidth = 0.4
         return v
     }()
     
@@ -65,7 +70,8 @@ class Popup: UIView {
         super.init(frame: frame)
         
         self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(animateOut)))
-        self.backgroundColor = .gray
+        
+        self.alpha = 0
         self.frame = UIScreen.main.bounds
         self.addSubview(container)
         

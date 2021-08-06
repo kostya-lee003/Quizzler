@@ -26,10 +26,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         updateUI()
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
-            let pop = Popup()
-            self.view.addSubview(pop)
-        }
         
         Question.text = quizBrain.getQuestion(i)
         
@@ -54,7 +50,6 @@ class ViewController: UIViewController {
 
     
     @IBAction func answerBtnPressed(_ sender: UIButton) {
-        
         AppearingLabel.textColor = UIColor( white: 0, alpha: 1.0)
         
         quizBrain.checkAnswer(quizBrain.getQuestionAnswer(i), sender.currentTitle!)
@@ -72,7 +67,18 @@ class ViewController: UIViewController {
         } else {
             progress(Float(i))
             i += 1
+            print(score.getScore())
+            showResult()
             
+            
+            
+        }
+    }
+    
+    private func showResult() {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) {
+            let pop = Popup()
+            self.view.addSubview(pop)
         }
     }
     

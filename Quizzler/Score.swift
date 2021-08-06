@@ -24,5 +24,9 @@ struct Score {
         score += 1
     }
     
+    mutating func scoreZeroing() {
+        self.score = 0
+    }
+    
     
 }
