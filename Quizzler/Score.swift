@@ -8,24 +8,25 @@
 import Foundation
 import  UIKit
 
-struct Score {
-    private var score: Int = 0
-    private var numOfQuestions: Int = QuizBrain().quiz.count
+class Score {
     
-    func getScore() -> Int{
-        return score
+    static var score = 0
+    private var numOfQuestions: Int = QuizBrain().quiz.count
+
+    func getScore() -> Int {
+        return Score.score
     }
     
     func getNumOfQuestions() -> Int {
         return numOfQuestions
     }
     
-    mutating func scoreUp() {
-        score += 1
+    func scoreUp() {
+        Score.score += 1
     }
     
-    mutating func scoreZeroing() {
-        self.score = 0
+    func scoreZeroing() {
+        Score.score = 0
     }
     
     

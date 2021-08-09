@@ -9,7 +9,7 @@ import Foundation
     
     struct QuizBrain {
         
-        private var answerForLabel: Bool? = nil
+        private var correctAnswerForLabel: Bool? = nil
         
        let quiz = [
         
@@ -31,14 +31,14 @@ import Foundation
         
         mutating func checkAnswer(_ ans: String,_ userAns: String) {
             if ans == userAns {
-                answerForLabel = true
+                correctAnswerForLabel = true
             } else if userAns != ans {
-                answerForLabel = false
+                correctAnswerForLabel = false
             }
         }
         
         func getAnswerForLabel() -> Bool? {
-            return answerForLabel
+            return correctAnswerForLabel
         }
         
         

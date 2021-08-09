@@ -22,6 +22,10 @@ class ViewController: UIViewController {
     var quizBrain = QuizBrain()
     var score = Score()
     
+    func iZeroing() {
+        self.i = 0
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -52,11 +56,11 @@ class ViewController: UIViewController {
     @IBAction func answerBtnPressed(_ sender: UIButton) {
         AppearingLabel.textColor = UIColor( white: 0, alpha: 1.0)
         
+        checkArrayRange(i)
         quizBrain.checkAnswer(quizBrain.getQuestionAnswer(i), sender.currentTitle!)
-        
         labelAppear()
         nextQuestion()
-        progress(Float(i))
+        progress()
         ScoreLabel.text = "\(score.getScore()) / \(score.getNumOfQuestions())"
     }
     
@@ -65,13 +69,18 @@ class ViewController: UIViewController {
             i += 1
             Question.text = quizBrain.getQuestion(i)    // Setting the question runtime on device.
         } else {
-            progress(Float(i))
+            progress()
             i += 1
-            print(score.getScore())
             showResult()
+            //print(score.getScore())
             
-            
-            
+        }
+    }
+    
+    private func checkArrayRange(_ i: Int) {
+        if i == quizBrain.quiz.count {
+            score.scoreZeroing()
+            iZeroing()
         }
     }
     
@@ -79,6 +88,7 @@ class ViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) {
             let pop = Popup()
             self.view.addSubview(pop)
+            //pop.setScoreLabel(Score.init().getScore())
         }
     }
     
@@ -95,7 +105,7 @@ class ViewController: UIViewController {
     }
     
     private func setAppearingLabelColor(_ answer: Bool) {
-        
+    
         if answer == false {
             AppearingLabel.backgroundColor = UIColor(red: 255/255, green: 0/255, blue: 0/255, alpha: 1.0)
         }
@@ -111,6 +121,7 @@ class ViewController: UIViewController {
                 AppearingLabel.text = "Correct!"
                 setAppearingLabelColor(quizBrain.getAnswerForLabel()!)
                 score.scoreUp()
+                print(score.getScore())
             }
             else if quizBrain.getAnswerForLabel() == false {
                 AppearingLabel.text = "Wrong!"
@@ -119,9 +130,9 @@ class ViewController: UIViewController {
             
         }
 
-    private func progress(_ i: Float) {
-            print("\(i) / \(quizBrain.quiz.count)")
-            Progress.progress = i / Float(quizBrain.quiz.count)
+    private func progress() {
+            //print("\(i) / \(quizBrain.quiz.count)")
+            Progress.progress = Float(i) / Float(quizBrain.quiz.count)
         }
     }
     
