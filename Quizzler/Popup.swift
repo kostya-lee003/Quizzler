@@ -35,10 +35,6 @@ class Popup: UIView {
         return label
     }()
     
-    func setScore(_ score: Int) {
-        Score.score = score
-    }
-    
     fileprivate let container: UIView = {
         let v = UIView()
         v.translatesAutoresizingMaskIntoConstraints = false
@@ -56,6 +52,7 @@ class Popup: UIView {
         stack.spacing = 10
         return stack
     }()
+
     
     @objc fileprivate func animateOut() {
         
@@ -99,8 +96,7 @@ class Popup: UIView {
         container.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier:  0.3).isActive = true
         
         container.addSubview(stack)
-        //stack.topAnchor.constraint(equalTo: container.topAnchor).isActive = true
-        //stack.bottomAnchor.constraint(equalTo: container.bottomAnchor).isActive = true
+        
         stack.trailingAnchor.constraint(equalTo: container.trailingAnchor).isActive = true
         stack.leadingAnchor.constraint(equalTo: container.leadingAnchor).isActive = true
         stack.heightAnchor.constraint(equalTo: container.heightAnchor, multiplier: 0.5).isActive = true

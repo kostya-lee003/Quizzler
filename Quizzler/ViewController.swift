@@ -35,6 +35,10 @@ class ViewController: UIViewController {
         
     }
     
+//    func startOver() {
+//        Question.text = quizBrain.getQuestion(i)
+//    }
+    
     private func updateUI() {
         setBtnProperties(TrueBtn)
         setBtnProperties(FalseBtn)
@@ -72,8 +76,6 @@ class ViewController: UIViewController {
             progress()
             i += 1
             showResult()
-            //print(score.getScore())
-            
         }
     }
     
@@ -88,7 +90,6 @@ class ViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) {
             let pop = Popup()
             self.view.addSubview(pop)
-            //pop.setScoreLabel(Score.init().getScore())
         }
     }
     
@@ -105,7 +106,6 @@ class ViewController: UIViewController {
     }
     
     private func setAppearingLabelColor(_ answer: Bool) {
-    
         if answer == false {
             AppearingLabel.backgroundColor = UIColor(red: 255/255, green: 0/255, blue: 0/255, alpha: 1.0)
         }
@@ -131,7 +131,6 @@ class ViewController: UIViewController {
         }
 
     private func progress() {
-            //print("\(i) / \(quizBrain.quiz.count)")
             Progress.progress = Float(i) / Float(quizBrain.quiz.count)
         }
     }
